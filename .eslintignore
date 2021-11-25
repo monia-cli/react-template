@@ -2,12 +2,6 @@
 /node_modules
 # don't lint build output (make sure it's set to your correct build folder name)
 /dist
-# don't lint nyc coverage output
-/coverage
 
-src/services/*
-
-config-overrides.js
-
-serviceWorker.ts
-
+src/services-pont/*
+node_modules/react-countup/index.d.ts

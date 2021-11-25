@@ -1,31 +1,41 @@
+import { useState } from 'react'
+import logo from './logo.svg'
 import React from 'react'
-import Router from './router'
-import dva from './utils/dva'
-import models from './models'
-import { ConfigProvider } from 'antd'
-import 'moment/locale/zh-cn'
-import zhCN from 'antd/es/locale/zh_CN'
-import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import './App.css'
 
-const createHistory = require('history').createBrowserHistory
-export const history = createHistory()
-export const routerReducer = connectRouter(history)
-export const routerMiddlewareForDispatch = routerMiddleware(history)
+function App() {
+	const [count, setCount] = useState(0)
 
-export const app = dva({
-	models,
-	initState: {},
-	extraReducers: { router: routerReducer },
-	onAction: [routerMiddlewareForDispatch]
-})
+	return (
+		<div className="App">
+			<header className="App-header">
+				<img src={logo} className="App-logo" alt="logo" />
+				<p>Hello Vite + React!</p>
+				<p>
+					<button type="button" onClick={() => setCount((count) => count + 1)}>
+						count is: {count}
+					</button>
+				</p>
+				<p>
+					Edit <code>App.tsx</code> and save to test HMR updates.
+				</p>
+				<p>
+					<a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
+						Learn React
+					</a>
+					{' | '}
+					<a
+						className="App-link"
+						href="https://vitejs.dev/guide/features.html"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Vite Docs
+					</a>
+				</p>
+			</header>
+		</div>
+	)
+}
 
-const f: React.FC = app.start(
-	<ConnectedRouter history={history}>
-		<ConfigProvider locale={zhCN}>
-			<Router />
-		</ConfigProvider>
-	</ConnectedRouter>
-)
-
-export default f
+export default App

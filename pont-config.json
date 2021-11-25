@@ -1,11 +1,15 @@
 {
-  "originUrl": "",
-  "outDir": "./src/services",
-  "templatePath": "./apiTemplate",
-  "prettierConfig": {
-    "jsxSingleQuote": true,
-    "singleQuote": true,
-    "semi": false,
-    "trailingComma": false
-  }
+	"originUrl": "x",
+	"outDir": "./src/services",
+	"templatePath": "./apiTemplate",
+	"prettierConfig": {
+		"printWidth": 120,
+		"tabWidth": 2,
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"bracketSpacing": true,
+		"arrowParens": "always"
+	}
 }
